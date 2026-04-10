@@ -4,50 +4,120 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pinecone Education — Private Tutoring</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet" />
 </head>
-<body>
-  <header>
-    <nav>
-      <a href="home.html">Pinecone Education</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+<body class="d-flex flex-column min-vh-100">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-pine sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="home.html">Pinecone <span class="text-cone">Education</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link active" href="home.html" aria-current="page">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item mt-2 mt-lg-0"><a class="btn btn-cta btn-sm" href="payment.html"><i class="bi bi-calendar-check me-1" aria-hidden="true"></i>Book a Session</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container position-relative" style="z-index: 1">
+      <p class="hero-eyebrow mb-2"><i class="bi bi-geo-alt-fill me-1" aria-hidden="true"></i>Westminster, CO &amp; Remote</p>
+      <h1 class="display-font mb-3">Every student has <em class="text-cone">potential</em> waiting to grow.</h1>
+      <p class="lead mb-4">Patient, personalized tutoring for students (K-12 and beyond). Building confidence, skills, and a genuine love of learning.</p>
+      <a class="btn btn-cta btn-lg" href="payment.html"><i class="bi bi-credit-card me-2" aria-hidden="true"></i>View pricing &amp; book</a>
+    </div>
   </header>
 
-  <main>
-    <h1>Private Tutoring</h1>
-    <p>Patient, personalized tutoring for students (K-12 and beyond). Building confidence, skills, and a genuine love of learning.</p>
-    <p><a href="contact.html">Book a free first session</a></p>
+  <main class="flex-grow-1">
+    <div class="container py-4 py-md-5">
+      <section id="payment" aria-labelledby="payment-heading">
+        <p class="section-title">Pricing</p>
+        <h2 id="payment-heading" class="h2 mb-4">Simple, transparent rates</h2>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 pricing-card">
+              <div class="card-body">
+                <span class="badge badge-free rounded-pill mb-2">Standard</span>
+                <h3 class="h5 card-title">Per session</h3>
+                <p class="display-6 mb-2">$65</p>
+                <p class="text-muted small mb-0">Per hour-long session</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-success pricing-card">
+              <div class="card-body">
+                <span class="badge bg-success-subtle text-success-emphasis rounded-pill mb-2">Welcome</span>
+                <h3 class="h5 card-title">First session</h3>
+                <p class="display-6 mb-2 text-success">Free</p>
+                <p class="text-muted small mb-0">Always — no commitment</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card h-100 bg-mist border-0">
+              <div class="card-body">
+                <h3 class="h6 text-uppercase text-cone mb-3">Referral</h3>
+                <p class="mb-0 small">Refer a new client who attends at least three paid sessions and receive a <strong>free session</strong>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <section>
-      <h2>Payment</h2>
-      <ul>
-        <li>Basic cost is $65 per hour-long session,</li>
-        <li>The first session is always free.</li>
-        <li>Referral discount: If you refer a new client who attends at least three paid sessions, you get a free session.</li>
-      </ul>
+        <div class="row mt-4">
+          <div class="col-lg-8">
+            <div class="card">
+              <div class="card-header">Block discounts</div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap gap-2">
+                  <span><strong>Prepay for five sessions</strong></span>
+                  <span class="badge bg-pine text-white rounded-pill">$60/session · $300 total</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap gap-2">
+                  <span><strong>Prepay for ten sessions</strong></span>
+                  <span class="badge bg-pine text-white rounded-pill">$55/session · $550 total</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <h3>Block discounts</h3>
-      <ul>
-        <li>
-          Prepay for five sessions
-          <ul>
-            <li>Cost is $60 per session or $300 total</li>
-          </ul>
-        </li>
-        <li>
-          Prepay for ten sessions
-          <ul>
-            <li>Cost is $55 per session or $550 total</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
+      <section class="mt-5 pt-4 border-top border-mist" aria-labelledby="review-heading">
+        <p class="section-title">Families say</p>
+        <h2 id="review-heading" class="h2 mb-4">Review</h2>
+        <div class="card">
+          <div class="card-body p-4">
+            <blockquote class="blockquote review-quote mb-0">
+              <p>We have worked with Kenny for over five years and had an absolutely wonderful experience with him, and I cannot recommend him highly enough. Kenny has worked with my son across all academic subjects, with a particular focus on math, and the progress we've seen has been nothing short of remarkable.</p>
+              <p>Before we started, math was a real struggle-both in terms of understanding and confidence. Kenny has a gift for breaking down complex concepts into simple, manageable steps that truly click. More importantly, he makes learning engaging and even enjoyable, which has completely changed my son's attitude toward the subject.</p>
+              <p>Beyond math, Kenny has been incredibly supportive in other areas as well, helping to build strong study habits, organization skills, and overall academic confidence. He is patient, encouraging, and consistently goes the extra mile to ensure my son not only understands the material but feels proud of his progress.</p>
+              <p>What stands out most is his ability to connect on a personal level. My son genuinely looks forward to his sessions, which says everything. His grades have improved, but even more importantly, his confidence and independence as a learner have grown tremendously.</p>
+              <p>If you're looking for a dedicated, knowledgeable, and truly caring tutor, I would wholeheartedly recommend Kenny.</p>
+              <footer class="blockquote-footer mt-3">Holly</footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
-  <footer>
-    <p>© 2025 Pinecone Education · Westminster, CO · <a href="mailto:hello@pineconeeducation.com">hello@pineconeeducation.com</a></p>
+  <footer class="site-footer">
+    <div class="container text-center text-md-start">
+      <p class="mb-0 small">&copy; 2025 Pinecone Education · Westminster, CO · <a href="mailto:noahliska@outlook.com">noahliska@outlook.com</a></p>
+    </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
