@@ -6,118 +6,237 @@
   <title>Pinecone Education — Private Tutoring</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <link href="styles.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pine:       { DEFAULT: '#2d4a3e', light: '#3d6355', dark: '#1e3329' },
+            cone:       { DEFAULT: '#c4732a', light: '#e8955a' },
+            cream:      '#faf6ee',
+            mist:       '#eae4d8',
+            bark:       '#7a6551',
+          },
+          fontFamily: {
+            heading: ['"Baloo 2"', 'system-ui', 'sans-serif'],
+            body:    ['"Comic Neue"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body class="d-flex flex-column min-vh-100">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-pine sticky-top shadow-sm">
-    <div class="container">
-      <a class="navbar-brand" href="home.html">Pinecone <span class="text-cone">Education</span></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navMain">
-        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-          <li class="nav-item"><a class="nav-link active" href="home.html" aria-current="page">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          <li class="nav-item mt-2 mt-lg-0"><a class="btn btn-cta btn-sm" href="payment.html"><i class="bi bi-calendar-check me-1" aria-hidden="true"></i>Book a Session</a></li>
-        </ul>
+<body class="font-body bg-cream text-[#1e2b26] flex flex-col min-h-screen leading-relaxed">
+
+  <!-- ── Navbar ── -->
+  <nav class="sticky top-0 z-50 bg-pine shadow-lg" role="navigation" aria-label="Main navigation">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <a href="home.html" class="font-heading font-bold text-xl text-white tracking-wide rounded focus-visible:outline-2 focus-visible:outline-cone focus-visible:outline-offset-2">
+          Pinecone <span class="text-cone-light">Education</span>
+        </a>
+
+        <!-- Desktop links -->
+        <div class="hidden md:flex items-center gap-6">
+          <a href="home.html" class="text-cone-light text-sm font-semibold uppercase tracking-widest transition-colors duration-200 rounded focus-visible:outline-2 focus-visible:outline-cone focus-visible:outline-offset-2" aria-current="page">Home</a>
+          <a href="about.html" class="text-white/80 hover:text-white text-sm font-semibold uppercase tracking-widest transition-colors duration-200 rounded focus-visible:outline-2 focus-visible:outline-cone focus-visible:outline-offset-2">About</a>
+          <a href="contact.html" class="text-white/80 hover:text-white text-sm font-semibold uppercase tracking-widest transition-colors duration-200 rounded focus-visible:outline-2 focus-visible:outline-cone focus-visible:outline-offset-2">Contact</a>
+          <a href="payment.html" class="inline-flex items-center gap-1.5 bg-cone hover:bg-cone-light text-white text-sm font-bold px-5 py-2 rounded-full transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/></svg>
+            Book a Session
+          </a>
+        </div>
+
+        <!-- Mobile hamburger -->
+        <button id="nav-toggle" class="md:hidden text-white cursor-pointer p-2 rounded focus-visible:outline-2 focus-visible:outline-cone" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-menu">
+          <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-white/10 mt-1">
+        <div class="flex flex-col gap-1 pt-3">
+          <a href="home.html" class="text-cone-light text-sm font-semibold uppercase tracking-wider px-2 py-2 rounded hover:bg-white/10 transition-colors duration-200">Home</a>
+          <a href="about.html" class="text-white/80 hover:text-white text-sm font-semibold uppercase tracking-wider px-2 py-2 rounded hover:bg-white/10 transition-colors duration-200">About</a>
+          <a href="contact.html" class="text-white/80 hover:text-white text-sm font-semibold uppercase tracking-wider px-2 py-2 rounded hover:bg-white/10 transition-colors duration-200">Contact</a>
+          <a href="payment.html" class="inline-flex items-center gap-1.5 bg-cone hover:bg-cone-light text-white text-sm font-bold px-5 py-2 rounded-full mt-2 transition-colors duration-200 cursor-pointer w-fit">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/></svg>
+            Book a Session
+          </a>
+        </div>
       </div>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="container position-relative" style="z-index: 1">
-      <p class="hero-eyebrow mb-2"><i class="bi bi-geo-alt-fill me-1" aria-hidden="true"></i>Westminster, CO &amp; Remote</p>
-      <h1 class="display-font mb-3">Every student has <em class="text-cone">potential</em> waiting to grow.</h1>
-      <p class="lead mb-4">Patient, personalized tutoring for students (K-12 and beyond). Building confidence, skills, and a genuine love of learning.</p>
-      <a class="btn btn-cta btn-lg" href="payment.html"><i class="bi bi-credit-card me-2" aria-hidden="true"></i>View pricing &amp; book</a>
+  <!-- ── Hero ── -->
+  <header style="background: linear-gradient(135deg, #1e3329 0%, #2d4a3e 55%, rgba(196,115,42,0.35) 100%);" class="text-white py-20 md:py-28 relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at 80% 50%, rgba(232,149,90,0.12) 0%, transparent 60%);"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+      <p class="flex items-center gap-1.5 text-cone-light text-xs font-bold uppercase tracking-widest mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Westminster, CO &amp; Remote
+      </p>
+
+      <h1 class="font-heading font-bold text-white mb-5" style="font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.15; max-width: 38rem;">
+        Every student has <em class="text-cone-light not-italic">potential</em> waiting to grow.
+      </h1>
+
+      <p class="text-white/85 text-lg mb-8 leading-relaxed" style="max-width: 34rem;">
+        Patient, personalized tutoring for students K–12 and beyond. Building confidence, skills, and a genuine love of learning.
+      </p>
+
+      <a href="payment.html" class="inline-flex items-center gap-2 bg-cone hover:bg-cone-light text-white font-bold text-base px-7 py-3.5 rounded-full transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        View pricing &amp; book
+      </a>
+
+      <!-- Trust stat badges -->
+      <div class="flex flex-wrap gap-3 mt-10">
+        <div class="stat-card bg-white/10 border border-white/20 rounded-xl px-4 py-3 backdrop-blur-sm">
+          <p class="font-heading font-bold text-white text-2xl leading-none">8+</p>
+          <p class="text-white/70 text-xs mt-1">Years Experience</p>
+        </div>
+        <div class="stat-card bg-white/10 border border-white/20 rounded-xl px-4 py-3 backdrop-blur-sm">
+          <p class="font-heading font-bold text-cone-light text-2xl leading-none">Free</p>
+          <p class="text-white/70 text-xs mt-1">First Session</p>
+        </div>
+        <div class="stat-card bg-white/10 border border-white/20 rounded-xl px-4 py-3 backdrop-blur-sm">
+          <p class="font-heading font-bold text-white text-2xl leading-none">K–12</p>
+          <p class="text-white/70 text-xs mt-1">&amp; College</p>
+        </div>
+        <div class="stat-card bg-white/10 border border-white/20 rounded-xl px-4 py-3 backdrop-blur-sm">
+          <p class="font-heading font-bold text-white text-2xl leading-none">All</p>
+          <p class="text-white/70 text-xs mt-1">Core Subjects</p>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main class="flex-grow-1">
-    <div class="container py-4 py-md-5">
-      <section id="payment" aria-labelledby="payment-heading">
-        <p class="section-title">Pricing</p>
-        <h2 id="payment-heading" class="h2 mb-4">Simple, transparent rates</h2>
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-4">
-            <div class="card h-100 pricing-card">
-              <div class="card-body">
-                <span class="badge badge-free rounded-pill mb-2">Standard</span>
-                <h3 class="h5 card-title">Per session</h3>
-                <p class="display-6 mb-2">$65</p>
-                <p class="text-muted small mb-0">Per hour-long session</p>
-              </div>
-            </div>
+  <main class="flex-grow">
+
+    <!-- ── Pricing ── -->
+    <section class="py-16 md:py-20" aria-labelledby="pricing-heading">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-cone text-xs font-bold uppercase tracking-widest mb-2">Pricing</p>
+        <h2 id="pricing-heading" class="font-heading font-bold text-pine text-3xl md:text-4xl mb-10">Simple, transparent rates</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+          <!-- Standard -->
+          <div class="bg-white border border-mist rounded-2xl p-7 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-default">
+            <span class="inline-block bg-pine/10 text-pine text-xs font-bold px-3 py-1 rounded-full mb-5">Standard</span>
+            <h3 class="font-heading font-semibold text-pine text-lg mb-1">Per session</h3>
+            <p class="font-heading font-bold text-pine text-5xl mb-1">$65</p>
+            <p class="text-[#5a6b64] text-sm">Per hour-long session</p>
           </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card h-100 border-success pricing-card">
-              <div class="card-body">
-                <span class="badge bg-success-subtle text-success-emphasis rounded-pill mb-2">Welcome</span>
-                <h3 class="h5 card-title">First session</h3>
-                <p class="display-6 mb-2 text-success">Free</p>
-                <p class="text-muted small mb-0">Always — no commitment</p>
-              </div>
-            </div>
+          <!-- First free -->
+          <div class="bg-white border-2 border-green-400 rounded-2xl p-7 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-default">
+            <span class="inline-block bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full mb-5">Welcome</span>
+            <h3 class="font-heading font-semibold text-pine text-lg mb-1">First session</h3>
+            <p class="font-heading font-bold text-green-600 text-5xl mb-1">Free</p>
+            <p class="text-[#5a6b64] text-sm">Always — no commitment</p>
           </div>
-          <div class="col-lg-4">
-            <div class="card h-100 bg-mist border-0">
-              <div class="card-body">
-                <h3 class="h6 text-uppercase text-cone mb-3">Referral</h3>
-                <p class="mb-0 small">Refer a new client who attends at least three paid sessions and receive a <strong>free session</strong>.</p>
-              </div>
-            </div>
+          <!-- Referral -->
+          <div class="bg-mist border border-mist rounded-2xl p-7 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-default">
+            <p class="text-cone text-xs font-bold uppercase tracking-widest mb-4">Referral Bonus</p>
+            <p class="text-[#1e2b26] text-sm leading-relaxed">Refer a new client who attends at least three paid sessions and receive a <strong>free session</strong> — our thank-you to you.</p>
           </div>
         </div>
 
-        <div class="row mt-4">
-          <div class="col-lg-8">
-            <div class="card">
-              <div class="card-header">Block discounts</div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap gap-2">
-                  <span><strong>Prepay for five sessions</strong></span>
-                  <span class="badge bg-pine text-white rounded-pill">$60/session · $300 total</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap gap-2">
-                  <span><strong>Prepay for ten sessions</strong></span>
-                  <span class="badge bg-pine text-white rounded-pill">$55/session · $550 total</span>
-                </li>
-              </ul>
+        <!-- Block discounts -->
+        <div class="bg-white border border-mist rounded-2xl shadow-sm overflow-hidden max-w-2xl">
+          <div class="px-6 py-4 border-b border-mist">
+            <h3 class="font-heading font-semibold text-pine text-lg">Block discounts</h3>
+          </div>
+          <div class="divide-y divide-mist">
+            <div class="flex items-center justify-between flex-wrap gap-3 px-6 py-4">
+              <span class="font-semibold text-[#1e2b26]">Prepay for five sessions</span>
+              <span class="bg-pine text-white text-sm font-bold px-4 py-1.5 rounded-full">$60/session · $300 total</span>
+            </div>
+            <div class="flex items-center justify-between flex-wrap gap-3 px-6 py-4">
+              <span class="font-semibold text-[#1e2b26]">Prepay for ten sessions</span>
+              <span class="bg-pine text-white text-sm font-bold px-4 py-1.5 rounded-full">$55/session · $550 total</span>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="mt-5 pt-4 border-top border-mist" aria-labelledby="review-heading">
-        <p class="section-title">Families say</p>
-        <h2 id="review-heading" class="h2 mb-4">Review</h2>
-        <div class="card">
-          <div class="card-body p-4">
-            <blockquote class="blockquote review-quote mb-0">
-              <p>We have worked with Kenny for over five years and had an absolutely wonderful experience with him, and I cannot recommend him highly enough. Kenny has worked with my son across all academic subjects, with a particular focus on math, and the progress we've seen has been nothing short of remarkable.</p>
-              <p>Before we started, math was a real struggle-both in terms of understanding and confidence. Kenny has a gift for breaking down complex concepts into simple, manageable steps that truly click. More importantly, he makes learning engaging and even enjoyable, which has completely changed my son's attitude toward the subject.</p>
-              <p>Beyond math, Kenny has been incredibly supportive in other areas as well, helping to build strong study habits, organization skills, and overall academic confidence. He is patient, encouraging, and consistently goes the extra mile to ensure my son not only understands the material but feels proud of his progress.</p>
-              <p>What stands out most is his ability to connect on a personal level. My son genuinely looks forward to his sessions, which says everything. His grades have improved, but even more importantly, his confidence and independence as a learner have grown tremendously.</p>
-              <p>If you're looking for a dedicated, knowledgeable, and truly caring tutor, I would wholeheartedly recommend Kenny.</p>
-              <footer class="blockquote-footer mt-3">Holly</footer>
-            </blockquote>
+    <!-- ── Testimonial ── -->
+    <section class="py-16 md:py-20 bg-white border-t border-mist" aria-labelledby="review-heading">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-cone text-xs font-bold uppercase tracking-widest mb-2">Families say</p>
+        <h2 id="review-heading" class="font-heading font-bold text-pine text-3xl md:text-4xl mb-10">Reviews</h2>
+
+        <div class="bg-cream border border-mist rounded-2xl p-8 md:p-10 shadow-sm max-w-3xl relative">
+          <!-- Decorative quote mark -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="absolute top-6 right-8 w-14 h-14 text-cone/12 pointer-events-none" aria-hidden="true"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          <!-- Stars -->
+          <div class="flex gap-1 mb-5" aria-label="5 out of 5 stars">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-cone" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-cone" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-cone" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-cone" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-cone" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
+          <blockquote class="review-quote">
+            <p class="text-[#1e2b26] leading-loose mb-4">We have worked with Kenny for over five years and had an absolutely wonderful experience with him, and I cannot recommend him highly enough. Kenny has worked with my son across all academic subjects, with a particular focus on math, and the progress we've seen has been nothing short of remarkable.</p>
+            <p class="text-[#1e2b26] leading-loose mb-4">Before we started, math was a real struggle — both in terms of understanding and confidence. Kenny has a gift for breaking down complex concepts into simple, manageable steps that truly click. More importantly, he makes learning engaging and even enjoyable, which has completely changed my son's attitude toward the subject.</p>
+            <p class="text-[#1e2b26] leading-loose mb-4">Beyond math, Kenny has been incredibly supportive in other areas as well, helping to build strong study habits, organization skills, and overall academic confidence. He is patient, encouraging, and consistently goes the extra mile to ensure my son not only understands the material but feels proud of his progress.</p>
+            <p class="text-[#1e2b26] leading-loose mb-4">What stands out most is his ability to connect on a personal level. My son genuinely looks forward to his sessions, which says everything. His grades have improved, but even more importantly, his confidence and independence as a learner have grown tremendously.</p>
+            <p class="text-[#1e2b26] leading-loose">If you're looking for a dedicated, knowledgeable, and truly caring tutor, I would wholeheartedly recommend Kenny.</p>
+            <footer class="mt-6 not-italic">
+              <span class="font-heading font-bold text-pine text-lg">Holly</span>
+              <span class="text-[#5a6b64] text-sm ml-2">— Parent of student</span>
+            </footer>
+          </blockquote>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+
+    <!-- ── CTA Banner ── -->
+    <section style="background: linear-gradient(135deg, #1e3329 0%, #2d4a3e 100%);" class="py-16 md:py-20" aria-labelledby="cta-heading">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 id="cta-heading" class="font-heading font-bold text-white text-3xl md:text-4xl mb-4">Ready to get started?</h2>
+        <p class="text-white/80 text-lg mb-8 max-w-xl mx-auto leading-relaxed">The first session is always free. No commitment, no pressure — just great tutoring.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="contact.html" class="inline-flex items-center gap-2 bg-white hover:bg-cream text-pine font-bold text-base px-7 py-3.5 rounded-full transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Get in touch
+          </a>
+          <a href="payment.html" class="inline-flex items-center gap-2 bg-cone hover:bg-cone-light text-white font-bold text-base px-7 py-3.5 rounded-full transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/></svg>
+            Book a session
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container text-center text-md-start">
-      <p class="mb-0 small">&copy; 2025 Pinecone Education · Westminster, CO · <a href="mailto:noahliska@outlook.com">noahliska@outlook.com</a></p>
+  <!-- ── Footer ── -->
+  <footer class="bg-[#1e2b26] text-white/60 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+      <p class="text-sm">&copy; 2025 Pinecone Education · Westminster, CO ·
+        <a href="mailto:noahliska@outlook.com" class="text-cone-light hover:text-white transition-colors duration-200">noahliska@outlook.com</a>
+      </p>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const toggle   = document.getElementById('nav-toggle');
+    const menu     = document.getElementById('mobile-menu');
+    const iconMenu  = document.getElementById('icon-menu');
+    const iconClose = document.getElementById('icon-close');
+    toggle.addEventListener('click', () => {
+      const isHidden = menu.classList.toggle('hidden');
+      toggle.setAttribute('aria-expanded', String(!isHidden));
+      iconMenu.classList.toggle('hidden', !isHidden);
+      iconClose.classList.toggle('hidden', isHidden);
+    });
+  </script>
 </body>
 </html>

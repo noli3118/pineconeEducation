@@ -1,283 +1,31 @@
-/* Pinecone Education — site theme */
-:root {
-  --pine: #2d4a3e;
-  --pine-light: #3d6355;
-  --cone: #c4732a;
-  --cone-light: #e8955a;
-  --cream: #faf6ee;
-  --mist: #eae4d8;
-  --bark: #7a6551;
-  --text: #1e2b26;
-  --text-soft: #5a6b64;
+/* Pinecone Education — custom CSS (Tailwind handles utilities) */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+html { scroll-behavior: smooth; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-html {
-  scroll-behavior: smooth;
+/* Stat badge reveal */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+.stat-card { animation: fadeInUp 0.5s ease both; }
+.stat-card:nth-child(2) { animation-delay: 0.10s; }
+.stat-card:nth-child(3) { animation-delay: 0.20s; }
+.stat-card:nth-child(4) { animation-delay: 0.30s; }
 
-body {
-  font-family: "DM Sans", system-ui, sans-serif;
-  color: var(--text);
-  background-color: var(--cream);
-  line-height: 1.65;
-}
+/* Review quote left-border accent */
+.review-quote { border-left: 4px solid #c4732a; padding-left: 1.5rem; }
 
-h1,
-h2,
-h3,
-.display-font {
-  font-family: "Playfair Display", Georgia, serif;
-  color: var(--pine);
-  font-weight: 600;
-}
-
-.text-cone {
-  color: var(--cone) !important;
-}
-
-.bg-pine {
-  background-color: var(--pine) !important;
-}
-
-.bg-cream {
-  background-color: var(--cream) !important;
-}
-
-.bg-mist {
-  background-color: var(--mist) !important;
-}
-
-.border-mist {
-  border-color: var(--mist) !important;
-}
-
-/* Navbar */
-.navbar-brand {
-  font-family: "Playfair Display", Georgia, serif;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-
-.navbar-brand .text-cone {
-  color: var(--cone-light) !important;
-}
-
-.navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-}
-
-.navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link:focus {
-  color: #fff;
-}
-
-.navbar-dark .navbar-nav .nav-link.active {
-  color: var(--cone-light);
-}
-
-.btn-cta {
-  background-color: var(--cone);
-  border-color: var(--cone);
-  color: #fff;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  border-radius: 50rem;
-  padding: 0.45rem 1.1rem;
-}
-
-.btn-cta:hover,
-.btn-cta:focus {
-  background-color: var(--cone-light);
-  border-color: var(--cone-light);
-  color: #fff;
-}
-
-.btn-pine {
-  background-color: var(--pine);
-  border-color: var(--pine);
-  color: #fff;
-}
-
-.btn-pine:hover,
-.btn-pine:focus {
-  background-color: var(--pine-light);
-  border-color: var(--pine-light);
-  color: #fff;
-}
-
-.btn-outline-pine {
-  color: var(--pine);
-  border: 2px solid var(--cone);
-  background: #fff;
-}
-
-.btn-outline-pine:hover,
-.btn-outline-pine:focus {
-  color: #fff;
-  background-color: var(--pine);
-  border-color: var(--pine);
-}
-
-/* Hero */
-.hero {
-  background: linear-gradient(
-      135deg,
-      rgba(45, 74, 62, 0.92) 0%,
-      rgba(61, 99, 85, 0.88) 50%,
-      rgba(196, 115, 42, 0.35) 100%
-    ),
-    var(--pine);
-  color: #fff;
-  padding: 3.5rem 0 4rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  right: -5%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: min(45vw, 320px);
-  height: min(45vw, 320px);
-  background: radial-gradient(
-    circle,
-    rgba(232, 149, 90, 0.15) 0%,
-    transparent 70%
-  );
-  pointer-events: none;
-}
-
-.hero h1 {
-  color: #fff;
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1.15;
-}
-
-.hero .lead {
-  color: rgba(255, 255, 255, 0.88);
-  max-width: 36rem;
-}
-
-.hero-eyebrow {
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--cone-light);
-  font-weight: 600;
-}
-
-/* Sections */
-main > .container > section {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-
-.section-title {
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--cone);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-/* Cards */
-.card {
-  border: 1px solid var(--mist);
-  border-radius: 0.75rem;
-  box-shadow: 0 0.5rem 1.5rem rgba(45, 74, 62, 0.08);
-}
-
-.card-header {
-  background: #fff;
-  border-bottom-color: var(--mist);
-  font-family: "Playfair Display", Georgia, serif;
-  font-weight: 600;
-  color: var(--pine);
-}
-
-.pricing-card .display-6 {
-  font-family: "Playfair Display", Georgia, serif;
-  color: var(--pine);
-}
-
-.badge-free {
-  background-color: rgba(45, 74, 62, 0.1);
-  color: var(--pine);
-  font-weight: 600;
-}
-
-/* Review blockquote */
-.review-quote {
-  border-left: 4px solid var(--cone);
-  padding-left: 1.25rem;
-  margin-left: 0;
-  font-size: 1.05rem;
-  color: var(--text-soft);
-}
-
-.review-quote footer {
-  margin-top: 1rem;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  font-style: normal;
-  font-weight: 600;
-  color: var(--pine);
-}
-
-/* Lists */
-.list-check li {
-  padding-left: 0.25rem;
-}
-
-/* Footer */
-.site-footer {
-  background-color: var(--text);
-  color: rgba(255, 255, 255, 0.65);
-  padding: 2rem 0;
-  margin-top: auto;
-}
-
-.site-footer a {
-  color: var(--cone-light);
-}
-
-.site-footer a:hover {
-  color: #fff;
-}
-
-/* Payment buttons */
-.payment-stack .btn {
-  border-radius: 0.5rem;
-  padding: 0.75rem 1.25rem;
-  font-weight: 600;
-}
-
-/* Focus visibility */
-a:focus-visible,
-.btn:focus-visible {
-  outline: 2px solid var(--cone);
-  outline-offset: 2px;
-}
-
-/* Thank you / redirect pages */
-.page-simple {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.page-simple main {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #faf6ee; }
+::-webkit-scrollbar-thumb { background: #2d4a3e; border-radius: 3px; }
