@@ -1,0 +1,36 @@
+[build]
+  command   = "npm run build"
+  publish   = "out"
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from   = "/home"
+  to     = "/"
+  status = 301
+
+[[redirects]]
+  from   = "/home.html"
+  to     = "/"
+  status = 301
+
+[[redirects]]
+  from   = "/about.html"
+  to     = "/about/"
+  status = 301
+
+[[redirects]]
+  from   = "/contact.html"
+  to     = "/contact/"
+  status = 301
+
+[[redirects]]
+  from   = "/payment.html"
+  to     = "/payment/"
+  status = 301
+
+[[redirects]]
+  from   = "/thank-you.html"
+  to     = "/thank-you/"
+  status = 301

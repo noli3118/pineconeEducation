@@ -44,6 +44,11 @@ build/
 coverage/
 .cache/
 
+# Next.js
+.next/
+out/
+.swc/
+
 # Python
 __pycache__/
 *.py[cod]
