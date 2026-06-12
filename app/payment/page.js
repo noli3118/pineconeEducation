@@ -185,10 +185,10 @@ function PackageCard({ pkg, loading, onSelect, error }) {
         )}
         {noProduct && (
           <p className="text-bark text-xs mt-1">
-            <a href="mailto:kkincade22@gmail.com"
+            <a href="mailto:noahliska@outlook.com"
               className="underline hover:text-cone transition-colors duration-150"
               onClick={(e) => e.stopPropagation()}>
-              kkincade22@gmail.com
+              noahliska@outlook.com
             </a>
           </p>
         )}
@@ -296,9 +296,9 @@ export default function PaymentPage() {
                 </div>
                 <p className="text-[#5a6b64] pt-1">
                   Questions before paying?{' '}
-                  <a href="mailto:kkincade22@gmail.com"
+                  <a href="mailto:noahliska@outlook.com"
                     className="text-cone hover:text-cone-light underline transition-colors duration-150">
-                    kkincade22@gmail.com
+                    noahliska@outlook.com
                   </a>
                 </p>
               </div>

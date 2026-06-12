@@ -65,23 +65,27 @@ exports.handler = async (event) => {
   });
 
   try {
-    // Retrieve the product to get its default_price
-    const product = await stripe.products.retrieve(productId);
+    // Fetch active prices for this product from Stripe
+    const prices = await stripe.prices.list({
+      product: productId,
+      active: true,
+      limit: 1,
+    });
 
-    if (!product.default_price) {
+    if (!prices.data.length) {
       return {
         statusCode: 400,
         body: JSON.stringify({
-          error: `No default price set for product ${productId}. Please set a default price in the Stripe dashboard.`,
+          error: `No active price found for product ${productId}. Please create a price in the Stripe dashboard.`,
         }),
       };
     }
 
-    // Create the Checkout session using the product's default price
+    // Create the Checkout session
     const session = await stripe.checkout.sessions.create({
       line_items: [
         {
-          price: product.default_price,
+          price: prices.data[0].id,
           quantity: 1,
         },
       ],

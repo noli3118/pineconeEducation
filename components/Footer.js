@@ -5,10 +5,10 @@ export default function Footer() {
         <p className="text-sm">
           &copy; 2025 Pinecone Education &middot; Westminster, CO &middot;{' '}
           <a
-            href="mailto:kkincade22@gmail.com"
+            href="mailto:noahliska@outlook.com"
             className="text-cone-light hover:text-white transition-colors duration-200"
           >
-            kkincade22@gmail.com
+            noahliska@outlook.com
           </a>
         </p>
       </div>
