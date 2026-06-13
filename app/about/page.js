@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import PhotoCarousel from '@/components/PhotoCarousel';
 
 export const metadata = {
   title: 'Pinecone Education — About',
@@ -45,6 +46,9 @@ export default function AboutPage() {
       </header>
 
       <main className="flex-grow">
+        {/* ── Photo Carousel ── */}
+        <PhotoCarousel />
+
         {/* ── Stats ── */}
         <section className="py-12 border-b border-mist" aria-label="Experience highlights">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
