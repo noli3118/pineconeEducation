@@ -33,7 +33,7 @@ export default function PhotoCarousel() {
   return (
     <section className="py-10 bg-white border-b border-mist" aria-label="Photo gallery">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-2xl overflow-hidden shadow-md bg-mist"
+        <div className="relative rounded-2xl overflow-hidden shadow-md bg-[#1e2b26]"
           style={{ aspectRatio: '16/9' }}>
 
           {/* Images */}
@@ -48,7 +48,7 @@ export default function PhotoCarousel() {
                 src={photo.src}
                 alt={photo.alt}
                 fill
-                className="object-cover"
+                className="object-contain"
                 sizes="(max-width: 768px) 100vw, 768px"
                 priority={i === 0}
               />
