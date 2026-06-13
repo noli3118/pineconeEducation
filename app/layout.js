@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 export const metadata = {
   title: 'Pinecone Education — Private Tutoring',
   description:
-    'Patient, personalized tutoring for students K–12 and beyond. Westminster, CO & Remote.',
+    'Patient, personalized tutoring for students K–12 and beyond. Boulder and Jefferson County & Remote.',
 };
 
 export default function RootLayout({ children }) {

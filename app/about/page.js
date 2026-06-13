@@ -24,7 +24,7 @@ const qualities = [
   'Patient, encouraging instruction tailored to each student',
   'Focus on study habits and long-term academic confidence',
   'Experience with diverse learning needs and styles',
-  'Flexibility — in-person in Westminster, CO or fully remote',
+  'Flexibility — in-person in Jefferson County, Boulder County or fully remote',
 ];
 
 export default function AboutPage() {

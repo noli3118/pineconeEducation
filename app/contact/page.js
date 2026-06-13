@@ -48,7 +48,7 @@ export default function ContactPage() {
 
                 {/* FormSubmit.co — standard HTML form, works with Next.js static export */}
                 <form
-                  action="https://formsubmit.co/noahliska%40outlook.com"
+                  action="https://formsubmit.co/kkincade22%40gmail.com"
                   method="POST"
                 >
                   <input type="hidden" name="_subject" value="Pinecone Education — New inquiry" />
@@ -189,9 +189,9 @@ export default function ContactPage() {
                     </button>
                     <p className="text-[#5a6b64] text-sm">
                       Prefer email?{' '}
-                      <a href="mailto:noahliska@outlook.com"
+                      <a href="mailto:kkincade22@gmail.com"
                         className="text-cone hover:text-cone-light underline transition-colors duration-150">
-                        noahliska@outlook.com
+                        kkincade22@gmail.com
                       </a>
                     </p>
                   </div>

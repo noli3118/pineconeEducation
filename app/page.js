@@ -17,7 +17,7 @@ const CheckIcon = () => (
 
 export const metadata = {
   title: 'Pinecone Education — Private Tutoring',
-  description: 'Patient, personalized tutoring for students K–12 and beyond. Westminster, CO & Remote.',
+  description: 'Patient, personalized tutoring for students K–12 and beyond. Boulder and Jefferson County & Remote.',
 };
 
 export default function HomePage() {
@@ -38,7 +38,7 @@ export default function HomePage() {
               strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden="true">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
             </svg>
-            Westminster, CO &amp; Remote
+            Boulder &amp; Jefferson County &amp; Remote
           </p>
 
           <h1 className="font-heading font-bold text-white mb-5"
