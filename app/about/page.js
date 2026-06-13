@@ -49,23 +49,6 @@ export default function AboutPage() {
         {/* ── Photo Carousel ── */}
         <PhotoCarousel />
 
-        {/* ── Stats ── */}
-        <section className="py-12 border-b border-mist" aria-label="Experience highlights">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {stats.map(({ value, label, accent }, i) => (
-                <div key={i}
-                  className="stat-card bg-white border border-mist rounded-2xl p-5 text-center shadow-sm">
-                  <p className={`font-heading font-bold text-3xl leading-none ${accent ? 'text-cone' : 'text-pine'}`}>
-                    {value}
-                  </p>
-                  <p className="text-[#5a6b64] text-sm mt-2">{label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* ── Story ── */}
         <section className="py-16 md:py-20" aria-labelledby="story-heading">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -105,7 +88,7 @@ export default function AboutPage() {
               </p>
 
               {/* What I bring */}
-              <div className="bg-white border border-mist rounded-2xl p-6 shadow-sm">
+              <div className="bg-white border border-mist rounded-2xl p-6 shadow-sm mb-10">
                 <h3 className="font-heading font-semibold text-pine text-lg mb-4">
                   What I bring to every session
                 </h3>
@@ -118,6 +101,23 @@ export default function AboutPage() {
                   ))}
                 </ul>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Stats ── */}
+        <section className="py-12 border-t border-b border-mist" aria-label="Experience highlights">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {stats.map(({ value, label, accent }, i) => (
+                <div key={i}
+                  className="stat-card bg-white border border-mist rounded-2xl p-5 text-center shadow-sm">
+                  <p className={`font-heading font-bold text-3xl leading-none ${accent ? 'text-cone' : 'text-pine'}`}>
+                    {value}
+                  </p>
+                  <p className="text-[#5a6b64] text-sm mt-2">{label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
